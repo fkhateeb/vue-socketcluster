@@ -55,11 +55,11 @@
                 created: function () {
                     var self = this;
                     if (this.$options.hasOwnProperty("sockets")) {
-                        
-                        for (var key in self.$options.sockets) {
-                            if (self.$options.sockets.hasOwnProperty(key) && methods.indexOf(key) < 0) {
-                                socket.on(key,function(emit,data,respond) {
-                                    self.$options.sockets[key].call(self,data,respond);
+
+                        for (var ikey in self.$options.sockets) {
+                            if (self.$options.sockets.hasOwnProperty(ikey) && methods.indexOf(ikey) < 0) {
+                                socket.on(ikey, function (data, respond) {
+                                    self.$options.sockets[ikey].call(self, data, respond);
                                 })
                             }
                         }
